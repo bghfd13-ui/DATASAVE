@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: pekora-global-datastore
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pekora-global-datastore-db
+          property: connectionString
+      - key: DATASTORE_API_KEY
+        generateValue: true
+      - key: ALLOWED_UNIVERSE_ID
+        value: "173164"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "1200"
+
+databases:
+  - name: pekora-global-datastore-db
+    plan: free
+    databaseName: pekora_datastore
+    user: pekora_datastore
