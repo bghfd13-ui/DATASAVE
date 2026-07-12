@@ -1,0 +1,20 @@
+{
+  "name": "pekora-global-datastore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "External persistent DataStore-compatible API for a legacy Pekora Roblox experience.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}
